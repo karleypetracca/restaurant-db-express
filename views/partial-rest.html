@@ -1,0 +1,19 @@
+<a href='/restaurant/'>RESTAURANT HOME</a> / <a href='/'>INDEX</a>
+
+<ul>
+${restaurantData.map(element =>
+    `<li><a href='/restaurant/${element.id}'>${element.name}
+    (${element.category})</a> - ${element.address}<ul>
+
+    ${reviewData.map(review => {
+        if (review.restaurant_id === element.id) {
+            return `<li><b>${review.title}</b>:<ul>
+                <li>"${review.review}" - <em>${review.name}</em></li>
+                </li></ul>`;
+        }
+    }).join("")}
+
+    </ul></li>`
+).join("")}
+</ul>
+</div>
